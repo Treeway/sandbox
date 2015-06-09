@@ -1,0 +1,82 @@
+--
+-- 数据库: `sandbox`
+--
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `account`
+--
+
+CREATE TABLE IF NOT EXISTS `account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tb_account` varchar(255) NOT NULL,
+  `tb_pwd` varchar(255) NOT NULL,
+  `tb_user_id` varchar(255) NOT NULL,
+  `tb_nick_name` varchar(255) DEFAULT NULL,
+  `access_token` varchar(255) NOT NULL,
+  `refresh_token` varchar(255) NOT NULL,
+  `host_id` int(11) NOT NULL,
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL,
+  `remmenber_me` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `item`
+--
+
+CREATE TABLE IF NOT EXISTS `item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `num_iid` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `desc` varchar(255) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  `num` varchar(255) NOT NULL,
+  `outer_id` varchar(255) NOT NULL,
+  `cid` varchar(255) NOT NULL,
+  `tb_user_id` varchar(255) NOT NULL,
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL,
+  `remmember_me` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `auth_key` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `password_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password_reset_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` smallint(6) NOT NULL DEFAULT '10',
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+
+
+-- --------------------------------------------------------
+
+--
+-- 数据库配置
+--
+
+
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=qdm114573423.my3w.com;dbname=qdm114573423_db',
+            'username' => 'qdm114573423',
+            'password' => 'qway46691',
+            'charset' => 'utf8',
+        ],
